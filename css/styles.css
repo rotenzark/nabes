@@ -327,3 +327,83 @@ p { margin: 0 0 1em; }
 @media (max-width: 900px) {
   .lista-post, .news-int, .contatti-griglia { grid-template-columns: 1fr; }
 }
+
+/* ── fascia editoriale: le foto di ambiente dell'originale ─────── */
+.editoriale { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2px; background: var(--linea); }
+.editoriale figure { position: relative; margin: 0; overflow: hidden; background: var(--crema-2); aspect-ratio: 4/3; }
+.editoriale img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+.editoriale figure:hover img { transform: scale(1.04); }
+.editoriale figcaption {
+  position: absolute; inset-inline: 0; bottom: 0; padding: 14px 18px;
+  background: linear-gradient(to top, rgba(38,40,32,.85), rgba(38,40,32,0));
+  color: var(--crema); font-family: var(--mono); font-size: 11px;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+
+/* ── striscia sotto «chi siamo» ────────────────────────────────── */
+.chi-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+.chi-strip figure { margin: 0; aspect-ratio: 4/3; overflow: hidden; background: var(--crema-2); }
+.chi-strip img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── prodotti senza scheda completa ────────────────────────────── */
+.altri-prodotti { background: var(--crema-2); }
+.card-parziale { opacity: .96; }
+.card-manca { font-family: var(--mono); font-size: 11px; color: var(--terra); letter-spacing: .04em; }
+
+/* ── galleria di laboratorio ───────────────────────────────────── */
+.galleria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.galleria figure { margin: 0; aspect-ratio: 1; overflow: hidden; background: var(--crema-2); }
+.galleria img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+.galleria figure:hover img { transform: scale(1.06); }
+
+/* ── foto nelle pagine di testo ────────────────────────────────── */
+.testo-foto { margin: 0 0 2rem; aspect-ratio: 16/10; overflow: hidden; background: var(--crema-2); }
+.testo-foto img { width: 100%; height: 100%; object-fit: cover; }
+.cont-foto { margin: 0 0 24px; aspect-ratio: 16/9; overflow: hidden; background: var(--crema-2); }
+.cont-foto img { width: 100%; height: 100%; object-fit: cover; }
+
+/* l'hero originale è molto panoramico (1500x432): serve un ritaglio alto */
+.hero-foto img { object-position: 50% 50%; }
+
+@media (max-width: 900px) {
+  .editoriale { grid-template-columns: 1fr 1fr; }
+  .editoriale figure:first-child { grid-column: 1 / -1; }
+  .chi-strip { grid-template-columns: 1fr 1fr; }
+  .galleria { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .editoriale { grid-template-columns: 1fr; }
+  .chi-strip { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .galleria { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+
+/* ── linee / categorie con foto d'ambiente ─────────────────────── */
+.sez-cat { background: var(--crema-2); }
+.cat-griglia { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.cat-c { display: block; }
+.cat-foto { aspect-ratio: 5/4; overflow: hidden; background: var(--crema); margin-bottom: 11px; }
+.cat-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+.cat-c:hover .cat-foto img { transform: scale(1.05); }
+.cat-c h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 1px; }
+.cat-n { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inch-tenue); }
+@media (max-width: 1080px) { .cat-griglia { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .cat-griglia { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+
+/* ── hero a fascia: la foto originale è panoramica (3,5:1) ─────── */
+.hero-banda { position: relative; width: 100%; aspect-ratio: 1500 / 432; min-height: 340px; max-height: 68svh; overflow: hidden; background: var(--crema-2); }
+.hero-banda > img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 46%; }
+.hero-velo {
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(38,40,32,.80) 0%, rgba(38,40,32,.58) 38%, rgba(38,40,32,.12) 66%, rgba(38,40,32,0) 100%);
+}
+.hero-sopra { position: absolute; inset-inline: 0; bottom: clamp(22px, 4vw, 52px); left: 50%; transform: translateX(-50%); }
+.hero-sopra .occhiello { color: var(--oliva); }
+.hero-sopra h1 { font-family: var(--serif); font-size: clamp(2.1rem, 4.4vw, 3.7rem); color: var(--crema); max-width: 20ch; }
+.hero-sopra h1 em { font-style: italic; color: var(--oliva); }
+.hero-sotto { display: grid; grid-template-columns: 1.15fr auto; gap: clamp(20px, 4vw, 56px); align-items: center; padding-block: clamp(28px, 3.5vw, 46px); }
+.hero-sotto .hero-p { margin: 0; max-width: 62ch; font-size: 1.06rem; }
+@media (max-width: 780px) {
+  .hero-banda { aspect-ratio: 4/3; max-height: none; }
+  .hero-banda > img { object-position: 66% 50%; }
+  .hero-sotto { grid-template-columns: 1fr; }
+}
