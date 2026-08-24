@@ -272,3 +272,58 @@ p { margin: 0 0 1em; }
   .attivi > div { grid-template-columns: 1fr; gap: 2px; }
   .chi-dati { gap: 22px; }
 }
+
+/* ── pagine di testo lungo: blog, termini, documenti ───────────── */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.testo-lungo { max-width: 74ch; padding-block: clamp(40px, 6vw, 80px); }
+.testo-lungo h1 { font-family: var(--serif); font-size: clamp(2rem, 3.8vw, 3rem); margin-bottom: 1.6rem; }
+.testo-corpo h2 { font-family: var(--serif); font-size: 1.5rem; margin: 2.2rem 0 .7rem; }
+.testo-corpo p { color: var(--inch-soft); margin-bottom: 1.1rem; }
+.avviso {
+  border-inline-start: 3px solid var(--ambra); background: var(--crema-2);
+  padding: 18px 22px; margin-bottom: 2rem; font-size: .95rem; color: var(--inch-soft);
+}
+.avviso code { font-family: var(--mono); font-size: .84em; background: #fff; padding: 1px 5px; border: 1px solid var(--linea); }
+.avviso strong { color: var(--inchiostro); }
+
+/* ── lista articoli ────────────────────────────────────────────── */
+.lista-post { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.post { display: block; background: var(--crema-2); border: 1px solid var(--linea); padding: 30px 28px; transition: border-color .18s, transform .18s; }
+.post:hover { border-color: var(--verde); transform: translateY(-2px); }
+.post-data { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--inch-tenue); }
+.post h3 { font-family: var(--serif); font-size: 1.5rem; margin: .6rem 0 .7rem; }
+.post p { color: var(--inch-soft); font-size: .95rem; margin-bottom: .9rem; }
+.link-freccia { font-family: var(--mono); font-size: .78rem; color: var(--verde); }
+.link-freccia::after { content: ' →'; }
+
+/* ── newsletter ────────────────────────────────────────────────── */
+.newsletter { background: var(--crema-2); border-block: 1px solid var(--linea); padding: clamp(48px, 6vw, 76px) 0; }
+.news-int { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(26px, 4vw, 60px); align-items: center; }
+.news-int h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: .5rem; }
+.news-riga { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.news-riga input { flex: 1 1 240px; border: 1px solid var(--linea); background: var(--crema); padding: 14px 16px; font-family: var(--sans); font-size: .95rem; color: var(--inchiostro); }
+.news-riga input:focus-visible { outline: 2px solid var(--ambra); outline-offset: 1px; }
+.consenso { display: flex; gap: 9px; align-items: flex-start; font-size: .82rem; color: var(--inch-tenue); line-height: 1.5; }
+.consenso input { margin-top: 3px; flex: 0 0 auto; }
+
+/* ── contatti ──────────────────────────────────────────────────── */
+.contatti-griglia { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
+.modulo { display: grid; gap: 14px; margin-top: 1.8rem; }
+.modulo label { display: grid; gap: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--inch-tenue); }
+.modulo input[type="text"], .modulo input[type="email"], .modulo textarea {
+  border: 1px solid var(--linea); background: var(--crema); padding: 13px 15px;
+  font-family: var(--sans); font-size: .96rem; color: var(--inchiostro); text-transform: none; letter-spacing: 0;
+}
+.modulo textarea { resize: vertical; }
+.modulo .btn { justify-self: start; }
+.mini-nota { font-family: var(--mono); font-size: 11px; color: var(--inch-tenue); margin: 0; }
+.contatti-dati { background: var(--crema-2); border: 1px solid var(--linea); padding: 30px 28px; }
+.contatti-dati dl { margin: 0; }
+.contatti-dati dt { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--inch-tenue); margin-top: 1.2rem; }
+.contatti-dati dt:first-child { margin-top: 0; }
+.contatti-dati dd { margin: .3rem 0 0; font-size: 1.02rem; }
+.contatti-dati a:hover { color: var(--verde); }
+
+@media (max-width: 900px) {
+  .lista-post, .news-int, .contatti-griglia { grid-template-columns: 1fr; }
+}
