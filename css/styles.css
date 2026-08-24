@@ -1,0 +1,274 @@
+/* ═══════════════════════════════════════════════════════════════
+   NABES — «Si legge tutto»
+   Concept: ogni concorrente scrive «naturale» e chiede fiducia.
+   NABES mostra la formula. L'INCI non è una nota legale in fondo:
+   è composto come l'etichetta di un preparato, ed è il gesto-firma.
+   Palette dai PRODOTTI (crema, nero, ambra, terracotta, salvia),
+   non dall'oliva slavata del sito vecchio.
+   ═══════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --crema:      #faf8f0;
+  --crema-2:    #f2eee2;
+  --crema-3:    #e8e2d2;
+  --inchiostro: #262820;   /* 14,0:1 su crema */
+  --inch-soft:  #5c5a4e;   /* 7,4:1 */
+  --inch-tenue: #7d7a6b;
+  --verde:      #4a4f34;   /* bianco sopra: 8,5:1 */
+  --verde-mid:  #5f6644;
+  --oliva:      #c4c196;
+  --ambra:      #b8802a;
+  --terra:      #a8674a;
+  --linea:      #ddd6c4;
+
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans:  "Inter Tight", system-ui, -apple-system, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, monospace;
+
+  --wrap: 1280px;
+  --hdr: 68px;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--hdr) + 16px); }
+body {
+  margin: 0; background: var(--crema); color: var(--inchiostro);
+  font-family: var(--sans); font-size: 16.5px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; line-height: 1.08; letter-spacing: -.015em; }
+p { margin: 0 0 1em; }
+.wrap { width: min(100% - 40px, var(--wrap)); margin-inline: auto; }
+
+.salta {
+  position: absolute; top: 0; inset-inline-start: 0; z-index: 200;
+  width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  background: var(--verde); color: #fff; font-family: var(--mono); font-size: .8rem;
+}
+.salta:focus {
+  width: auto; height: auto; overflow: visible; clip-path: none;
+  top: 8px; inset-inline-start: 8px; padding: 12px 18px;
+}
+
+.occhiello {
+  font-family: var(--mono); font-size: .69rem; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--verde-mid);
+  margin: 0 0 1rem;
+}
+.tecnico { font-family: var(--mono); font-size: .78rem; letter-spacing: .02em; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+  font-family: var(--sans); font-size: .92rem; font-weight: 500;
+  padding: 14px 26px; border-radius: 2px; border: 1px solid transparent;
+  cursor: pointer; transition: background .2s, color .2s, border-color .2s;
+}
+.btn-pieno { background: var(--verde); color: #fff; }
+.btn-pieno:hover { background: var(--inchiostro); }
+.btn-linea { border-color: currentColor; }
+.btn-linea:hover { background: var(--inchiostro); color: var(--crema); border-color: var(--inchiostro); }
+.btn:focus-visible, a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--ambra); outline-offset: 3px;
+}
+
+/* ── header ───────────────────────────────────────────────────── */
+.hdr {
+  position: sticky; top: 0; z-index: 60; height: var(--hdr);
+  display: flex; align-items: center; gap: 26px; padding-inline: 20px;
+  background: rgba(250, 248, 240, .95); border-bottom: 1px solid var(--linea);
+}
+.hdr-logo { font-family: var(--serif); font-size: 1.5rem; letter-spacing: .06em; margin-inline-end: auto; line-height: 1; }
+/* pavimento tipografico: 11px. Sotto, su mobile, non si legge — il sito
+   vecchio scendeva a 10px e la prima versione di questo a 8px. */
+.hdr-logo span { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; display: block; color: var(--inch-tenue); margin-top: 2px; }
+.hdr nav { display: flex; gap: 24px; font-size: .92rem; }
+.hdr nav a { padding: 4px 0; border-bottom: 1px solid transparent; }
+.hdr nav a:hover, .hdr nav a[aria-current="page"] { border-bottom-color: var(--ambra); }
+.hdr-azioni { display: flex; gap: 18px; align-items: center; font-size: .92rem; }
+.carrello { display: inline-flex; align-items: center; gap: 7px; }
+.carrello b { font-family: var(--mono); font-size: .7rem; background: var(--verde); color: #fff; border-radius: 999px; padding: 1px 7px; font-weight: 500; }
+.burger { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
+.burger span { display: block; width: 22px; height: 1.5px; background: var(--inchiostro); margin: 5px 0; transition: transform .25s, opacity .25s; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── hero ─────────────────────────────────────────────────────── */
+.hero-griglia { display: grid; grid-template-columns: 1fr 1.15fr; min-height: calc(100svh - var(--hdr)); }
+.hero-testo { display: flex; flex-direction: column; justify-content: center; padding: 60px clamp(24px, 4vw, 76px); }
+.hero h1 { font-family: var(--serif); font-size: clamp(2.5rem, 4.6vw, 3.9rem); margin-bottom: 1.1rem; }
+.hero h1 em { font-style: italic; color: var(--verde); }
+.hero-p { font-size: 1.05rem; color: var(--inch-soft); max-width: 44ch; margin-bottom: 2rem; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-foto { position: relative; overflow: hidden; background: var(--crema-2); }
+.hero-foto img { width: 100%; height: 100%; object-fit: cover; }
+.hero-nota {
+  position: absolute; inset-inline: 0; bottom: 0; background: rgba(38, 40, 32, .84);
+  color: var(--crema); padding: 13px 20px; font-family: var(--mono); font-size: .7rem; letter-spacing: .04em;
+}
+
+/* ── GESTO-FIRMA: la riga della formula ───────────────────────── */
+.formula-riga { background: var(--inchiostro); color: var(--crema); overflow: hidden; }
+.formula-int { display: flex; align-items: stretch; }
+.formula-eti {
+  flex: 0 0 auto; padding: 17px 22px; background: var(--verde); color: #fff;
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+  white-space: nowrap; display: flex; align-items: center;
+}
+.formula-scorre { flex: 1 1 auto; overflow: hidden; }
+.formula-pista { display: flex; width: max-content; animation: scorri 70s linear infinite; }
+.formula-pista span { font-family: var(--mono); font-size: .76rem; padding: 17px 0; white-space: nowrap; color: #c6c2ae; }
+.formula-pista span i { font-style: normal; color: var(--oliva); padding-inline: 13px; }
+@keyframes scorri { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.formula-riga:hover .formula-pista, .formula-riga:focus-within .formula-pista { animation-play-state: paused; }
+
+/* ── sezioni ──────────────────────────────────────────────────── */
+.sez { padding: clamp(60px, 8vw, 112px) 0; }
+.sez-testa { max-width: 60ch; margin-bottom: 2.8rem; }
+.sez-testa h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.9rem); margin-bottom: .8rem; }
+.sez-sub { color: var(--inch-soft); font-size: 1.02rem; }
+
+.filtri { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.2rem; }
+.filtri button {
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  background: none; border: 1px solid var(--linea); color: var(--inch-soft);
+  padding: 9px 16px; border-radius: 999px; cursor: pointer; transition: background .18s, color .18s, border-color .18s;
+}
+.filtri button:hover { border-color: var(--verde); color: var(--verde); }
+.filtri button[aria-pressed="true"] { background: var(--verde); border-color: var(--verde); color: #fff; }
+
+/* ── griglia prodotti ─────────────────────────────────────────── */
+.griglia { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px 24px; }
+.card-foto { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--crema-2); margin-bottom: 13px; }
+/* inquadratura stretta: i fondi degli scatti sono disomogenei (bianco, grigio,
+   azzurrino). Tagliando stretto ne resta poco e la differenza non si legge. */
+.card-foto img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.16); transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+.card:hover .card-foto img { transform: scale(1.22); }
+.card-cat {
+  position: absolute; top: 10px; inset-inline-start: 10px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  background: rgba(250, 248, 240, .93); color: var(--verde); padding: 4px 9px;
+}
+.card h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 1px; }
+.card-sotto { font-size: .86rem; color: var(--inch-soft); margin-bottom: 8px; }
+.card-riga { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.card-prezzo { font-family: var(--mono); font-size: .9rem; }
+.card-form { font-family: var(--mono); font-size: .7rem; color: var(--inch-tenue); }
+.card-attivi {
+  margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--linea);
+  font-family: var(--mono); font-size: 11px; color: var(--inch-tenue); line-height: 1.55;
+}
+
+/* ── «come si legge un'etichetta» ─────────────────────────────── */
+.etichetta { background: var(--verde); color: var(--crema); }
+.etichetta .occhiello { color: var(--oliva); }
+.etichetta h2 { color: #fff; }
+.etichetta .sez-sub { color: #d7d5c4; }
+.eti-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.18); }
+.eti-c { background: var(--verde); padding: 30px 26px; margin: 0; }
+.eti-c dt { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--oliva); margin-bottom: .7rem; }
+.eti-c dd { margin: 0; color: #e8e6d8; font-size: .94rem; }
+
+/* ── chi siamo ────────────────────────────────────────────────── */
+.chi { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
+.chi-foto { aspect-ratio: 4/3; overflow: hidden; background: var(--crema-2); }
+.chi-foto img { width: 100%; height: 100%; object-fit: cover; }
+.chi h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.3vw, 2.6rem); margin-bottom: 1rem; }
+.chi p { color: var(--inch-soft); }
+.chi-dati { display: flex; gap: 32px; margin-top: 1.5rem; padding-top: 1.3rem; border-top: 1px solid var(--linea); flex-wrap: wrap; }
+.chi-dati div b { display: block; font-family: var(--serif); font-size: 1.65rem; line-height: 1.1; }
+.chi-dati div span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--inch-tenue); }
+
+/* ── footer ───────────────────────────────────────────────────── */
+.ftr { background: var(--inchiostro); color: var(--crema); padding: 64px 0 0; }
+.ftr-griglia { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 34px; padding-bottom: 46px; }
+.ftr-logo { font-family: var(--serif); font-size: 1.7rem; letter-spacing: .06em; margin-bottom: .5rem; line-height: 1; }
+.ftr-claim { color: var(--oliva); font-size: .94rem; max-width: 34ch; }
+.ftr h4 { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--oliva); margin-bottom: 1rem; }
+.ftr a { display: block; color: #c9c6b6; font-size: .92rem; margin-bottom: .5rem; }
+.ftr a:hover { color: #fff; }
+.ftr address { font-style: normal; color: #c9c6b6; font-size: .89rem; line-height: 1.75; }
+.ftr-barra { border-top: 1px solid rgba(250,248,240,.14); padding: 20px 0; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.ftr-barra p { margin: 0; font-family: var(--mono); font-size: 11px; color: var(--inch-tenue); }
+
+/* ── SCHEDA PRODOTTO ──────────────────────────────────────────── */
+.briciole { font-family: var(--mono); font-size: .7rem; color: var(--inch-tenue); padding-block: 22px 0; }
+.briciole a:hover { color: var(--verde); }
+.pdp { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 4vw, 62px); padding-block: 26px 0; align-items: start; }
+.pdp-gall { display: grid; gap: 10px; position: sticky; top: calc(var(--hdr) + 20px); }
+.pdp-main { aspect-ratio: 4/5; overflow: hidden; background: var(--crema-2); }
+.pdp-main img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); }
+.pdp-mini { display: flex; gap: 8px; }
+.pdp-mini button { width: 72px; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--linea); background: var(--crema-2); padding: 0; cursor: pointer; }
+.pdp-mini button[aria-pressed="true"] { border-color: var(--verde); }
+.pdp-mini img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.14); }
+
+.pdp-cat { font-family: var(--mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--verde-mid); }
+.pdp h1 { font-family: var(--serif); font-size: clamp(2.1rem, 3.8vw, 3rem); margin: .5rem 0 .25rem; }
+.pdp-sotto { font-size: 1.04rem; color: var(--inch-soft); margin-bottom: 1.3rem; }
+.pdp-riga { display: flex; align-items: baseline; gap: 16px; margin-bottom: 1.5rem; }
+.pdp-prezzo { font-family: var(--serif); font-size: 1.85rem; }
+.pdp-form { font-family: var(--mono); font-size: .78rem; color: var(--inch-tenue); }
+.pdp-claim { font-size: 1rem; color: var(--inch-soft); margin-bottom: 1.7rem; }
+.pdp-acquista { display: flex; gap: 10px; margin-bottom: 1.9rem; }
+.pdp-acquista .btn-pieno { flex: 1; }
+.qta { display: flex; align-items: center; border: 1px solid var(--linea); }
+.qta button { background: none; border: 0; width: 38px; height: 100%; font-size: 1.05rem; cursor: pointer; color: var(--inch-soft); }
+.qta input { width: 38px; text-align: center; border: 0; background: none; font-family: var(--mono); font-size: .9rem; -moz-appearance: textfield; }
+.qta input::-webkit-outer-spin-button, .qta input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* la formula: il pezzo forte della scheda */
+.formula-blocco { border: 1px solid var(--linea); background: var(--crema-2); margin-bottom: 16px; }
+.formula-blocco > h2 { font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; padding: 14px 22px; background: var(--verde); color: #fff; }
+.attivi { margin: 0; padding: 6px 22px 16px; }
+.attivi > div { display: grid; grid-template-columns: minmax(130px, 34%) 1fr; gap: 14px; padding: 11px 0; border-bottom: 1px dotted var(--linea); }
+.attivi > div:last-child { border-bottom: 0; }
+.attivi dt { font-weight: 500; font-size: .92rem; }
+.attivi dd { margin: 0; color: var(--inch-soft); font-size: .89rem; }
+.inci-blocco { padding: 17px 22px; border-top: 1px solid var(--linea); }
+.inci-blocco h3 { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--inch-tenue); margin-bottom: .6rem; }
+.inci-testo { font-family: var(--mono); font-size: .73rem; line-height: 1.85; color: var(--inch-soft); }
+
+.pdp-sez { margin-bottom: 16px; border-top: 1px solid var(--linea); padding-top: 17px; }
+.pdp-sez h2 { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--verde-mid); margin-bottom: .8rem; }
+.pdp-sez ul { margin: 0; padding-inline-start: 18px; color: var(--inch-soft); }
+.pdp-sez li { margin-bottom: .35rem; }
+
+/* ── responsive ───────────────────────────────────────────────── */
+@media (max-width: 1080px) { .griglia { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) {
+  .hdr nav { display: none; }
+  .burger { display: block; }
+  .hdr nav.aperta {
+    display: flex; position: fixed; inset: var(--hdr) 0 auto; flex-direction: column;
+    background: var(--crema); padding: 16px 24px 24px; gap: 0; border-bottom: 1px solid var(--linea);
+  }
+  .hdr nav.aperta a { padding: 13px 0; border-bottom: 1px solid var(--linea); font-size: 1.02rem; }
+  .hero-griglia { grid-template-columns: 1fr; min-height: 0; }
+  .hero-foto { aspect-ratio: 4/3; order: -1; }
+  .eti-griglia { grid-template-columns: 1fr; }
+  .chi { grid-template-columns: 1fr; }
+  .pdp { grid-template-columns: 1fr; }
+  .pdp-gall { position: static; }
+  .ftr-griglia { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .griglia { grid-template-columns: repeat(2, 1fr); gap: 26px 14px; }
+  .card h3 { font-size: 1.1rem; }
+  .card-attivi { display: none; }
+  .ftr-griglia { grid-template-columns: 1fr; }
+  .formula-eti { display: none; }
+  .attivi > div { grid-template-columns: 1fr; gap: 2px; }
+  .chi-dati { gap: 22px; }
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NABES — Cosmetici naturali artigianali | Alì Terme, Sicilia</title>
+<meta name="description" content="Cosmetici naturali artigianali prodotti ad Alì Terme. Ogni formula pubblicata per intero: attivi, funzione di ciascuno e INCI completo. Oli, burri, maschere, saponi e balsami.">
+<!-- ⚠️ TEMPORANEO — prototipo di presentazione. Contiene catalogo, testi e foto
+     reali di NABES: indicizzarlo creerebbe un doppione che compete con
+     nabes.it sulle stesse parole chiave, a danno del cliente.
+     DA RIMUOVERE quando diventa il sito ufficiale. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#4a4f34">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="NABES">
+<meta property="og:title" content="NABES — Cosmetici naturali artigianali | Alì Terme, Sicilia">
+<meta property="og:description" content="Cosmetici naturali artigianali prodotti ad Alì Terme. Ogni formula pubblicata per intero: attivi, funzione di ciascuno e INCI completo. Oli, burri, maschere, saponi e balsami.">
+<link rel="canonical" href="https://rotenzark.github.io/nabes/">
+<meta property="og:url" content="https://rotenzark.github.io/nabes/">
+<meta property="og:image" content="https://rotenzark.github.io/nabes/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rotenzark.github.io/nabes/img/og-image.jpg">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/InterTight-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/InstrumentSerif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css?v=1">
+<link rel="stylesheet" href="css/styles.css?v=2">
+<!-- qa-allow: forbidden-lazy — la regola «foto eager sempre» nasce per le vetrine
+     con 6-10 scatti, dove le foto SONO il contenuto. Qui la griglia catalogo ne ha
+     17 e l'hero è già fetchpriority="high". Misurato su 4G simulata:
+     lazy = 8 immagini / 236 KB al load · eager = 16 immagini / 765 KB, con LCP
+     IDENTICO (256 ms). Eager costerebbe 529 KB senza guadagnare nulla. -->
+<meta name="qa-allow" content="forbidden-lazy">
+<script src="js/main.js?v=1" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"NABES","alternateName":"Natural Best Solution",
+"description":"Cosmetici naturali artigianali",
+"address":{"@type":"PostalAddress","streetAddress":"Via Francesco Crispi 384-386","postalCode":"98021","addressLocality":"Alì Terme","addressRegion":"ME","addressCountry":"IT"},
+"telephone":"+39 379 354 2521","email":"nabes@naturalbestsolution.com"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Che cos'è l'INCI e perché lo pubblicate per intero?","acceptedAnswer":{"@type":"Answer","text":"L'INCI è la nomenclatura internazionale degli ingredienti cosmetici, obbligatoria in tutta l'Unione Europea. Lo pubblichiamo integrale su ogni prodotto perché è l'unico documento che dice davvero cosa c'è dentro: gli ingredienti sono elencati per quantità decrescente, quindi il primo è quello che c'è di più."}},
+{"@type":"Question","name":"I prodotti NABES sono davvero artigianali?","acceptedAnswer":{"@type":"Answer","text":"Sì. Formuliamo e produciamo a mano ad Alì Terme, in provincia di Messina, in piccoli lotti, con ingredienti di origine naturale e attivi botanici selezionati."}},
+{"@type":"Question","name":"Quanto costa la spedizione?","acceptedAnswer":{"@type":"Answer","text":"La spedizione è gratuita per ordini superiori a 50 euro."}},
+{"@type":"Question","name":"Come faccio a sapere se un prodotto è adatto alla mia pelle?","acceptedAnswer":{"@type":"Answer","text":"Su ogni scheda trovi gli attivi principali con la funzione di ciascuno, l'INCI completo e le avvertenze. Su pelli sensibili consigliamo sempre un patch test prima del primo utilizzo."}}
+]}
+</script>
+</head>
+<body>
+<a class="salta" href="#main">Vai al contenuto</a>
+<header class="hdr">
+  <a class="hdr-logo" href="index.html">NABES<span>NATURAL BEST SOLUTION</span></a>
+  <button class="burger" id="burger" aria-controls="nav" aria-expanded="false" aria-label="Apri il menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="nav" aria-label="Navigazione principale">
+    <a href="index.html#catalogo">Prodotti</a>
+    <a href="index.html#etichetta">Come si legge</a>
+    <a href="index.html#chi">Chi siamo</a>
+    <a href="index.html#contatti">Contatti</a>
+  </nav>
+  <div class="hdr-azioni">
+    <a class="carrello" href="#">Carrello <b>0</b></a>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="hero-griglia">
+    <div class="hero-testo">
+      <p class="occhiello">Alì Terme, Sicilia</p>
+      <h1>Non chiediamo di fidarti.<br><em>Ti diamo la formula.</em></h1>
+      <p class="hero-p">Cosmetici naturali fatti a mano. Di ogni prodotto pubblichiamo gli attivi, la funzione di ciascuno e l&rsquo;INCI completo &mdash; non in fondo alla pagina, ma al centro.</p>
+      <div class="hero-cta">
+        <a class="btn btn-pieno" href="#catalogo">Vedi i prodotti</a>
+        <a class="btn btn-linea" href="#etichetta">Come si legge un&rsquo;etichetta</a>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <img src="img/prodotti/NAB039-1.webp" alt="Burro Velluto NABES, burro corpo botanico, fotografato con olive, fiori e frutti secchi su pietra" width="1400" height="933" fetchpriority="high" decoding="async">
+      <p class="hero-nota">Burro Velluto &middot; Burro corpo botanico &middot; 100 gr</p>
+    </div>
+  </div>
+</section>
+
+<section class="formula-riga" aria-label="Ingredienti dalle nostre formule">
+  <div class="formula-int">
+    <p class="formula-eti">INCI, per intero</p>
+    <div class="formula-scorre">
+      <div class="formula-pista"><span>Ricinus Communis Seed Oil · Coco-Caprylate/Caprate · Simmondsia Chinensis Seed Oil · Opuntia Ficus-Indica Seed Oil · Backhousia Citriodora Leaf Oil · Glycine Soja (Soybean) Wax · Myrica Cerifera Fruit Wax<i>&bull;</i></span><span>Myrcia Cerifera Wax · Cera Candelilla · Copernicia Cerifera Wax · Euphorbia Cerifera (Candelilla) Wax · Theobroma Cacao Seed Butter · Mangifera Indica Seed Butter · Butyrospermum Parkii Butter<i>&bull;</i></span><span>Butyrospermum Parkii Butter · Cannabis Sativa Seed Oil · Ricinus Communis Seed Oil · Prunus Amygdalus Dulcis Oil · Cera Alba oppure Euphorbia Cerifera (Candelilla) Wax · Melaleuca Alternifolia Leaf Oil · Tocopherol<i>&bull;</i></span><span>Persea Gratissima (Avocado) Butter · Butyrospermum Parkii (Shea) Butter · Prunus Amygdalus Dulcis Oil · Simmondsia Chinensis Seed Oil · Cetyl Alcohol · Hippophae Rhamnoides Oil · Tocopherol<i>&bull;</i></span><span>Vitis Vinifera Seed Oil · Bakuchiol · Sclerocarya Birrea Seed Oil · Rosa Canina Seed Oil · Papaver Rhoeas Oil · Tocopherol · Lavandula Angustifolia Oil<i>&bull;</i></span><span>Prunus Amygdalus Dulcis Oil · Actinidia Chinensis Seed Oil · Helianthus Annuus Seed Oil · Rosa Centifolia Oil · Rosa Moschata Seed Oil · Tocopherol · Ascorbic Acid<i>&bull;</i></span><span>Ricinus Communis Seed Oil · Coco-Caprylate/Caprate · Simmondsia Chinensis Seed Oil · Opuntia Ficus-Indica Seed Oil · Backhousia Citriodora Leaf Oil · Glycine Soja (Soybean) Wax · Myrica Cerifera Fruit Wax<i>&bull;</i></span><span>Myrcia Cerifera Wax · Cera Candelilla · Copernicia Cerifera Wax · Euphorbia Cerifera (Candelilla) Wax · Theobroma Cacao Seed Butter · Mangifera Indica Seed Butter · Butyrospermum Parkii Butter<i>&bull;</i></span><span>Butyrospermum Parkii Butter · Cannabis Sativa Seed Oil · Ricinus Communis Seed Oil · Prunus Amygdalus Dulcis Oil · Cera Alba oppure Euphorbia Cerifera (Candelilla) Wax · Melaleuca Alternifolia Leaf Oil · Tocopherol<i>&bull;</i></span><span>Persea Gratissima (Avocado) Butter · Butyrospermum Parkii (Shea) Butter · Prunus Amygdalus Dulcis Oil · Simmondsia Chinensis Seed Oil · Cetyl Alcohol · Hippophae Rhamnoides Oil · Tocopherol<i>&bull;</i></span><span>Vitis Vinifera Seed Oil · Bakuchiol · Sclerocarya Birrea Seed Oil · Rosa Canina Seed Oil · Papaver Rhoeas Oil · Tocopherol · Lavandula Angustifolia Oil<i>&bull;</i></span><span>Prunus Amygdalus Dulcis Oil · Actinidia Chinensis Seed Oil · Helianthus Annuus Seed Oil · Rosa Centifolia Oil · Rosa Moschata Seed Oil · Tocopherol · Ascorbic Acid<i>&bull;</i></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sez" id="catalogo">
+  <div class="wrap">
+    <div class="sez-testa">
+      <p class="occhiello">Il catalogo &middot; 15 prodotti</p>
+      <h2>Fatti a mano, in piccoli lotti</h2>
+      <p class="sez-sub">Ogni scheda riporta la formula per intero. Sotto ogni prodotto trovi i tre attivi principali.</p>
+    </div>
+    <div class="filtri" role="group" aria-label="Filtra per categoria">
+      <button type="button" data-filtro="tutti" aria-pressed="true">Tutti</button>
+      <button type="button" data-filtro="Viso" aria-pressed="false">Viso</button>
+      <button type="button" data-filtro="Corpo" aria-pressed="false">Corpo</button>
+      <button type="button" data-filtro="Labbra" aria-pressed="false">Labbra</button>
+      <button type="button" data-filtro="Capelli" aria-pressed="false">Capelli</button>
+      <button type="button" data-filtro="Saponi" aria-pressed="false">Saponi</button>
+      <button type="button" data-filtro="Benessere" aria-pressed="false">Benessere</button>
+      <button type="button" data-filtro="Mani e unghie" aria-pressed="false">Mani e unghie</button>
+    </div>
+    <div class="griglia" id="griglia">
+      <a class="card" href="prodotti/balsamo-labbra-ceramide-e-vaniglia.html" data-cat="Labbra">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB033-1.webp" alt="Balsamo Labbra Ceramidi e vaniglia" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Labbra</span>
+        </div>
+        <h3>Balsamo Labbra</h3>
+        <p class="card-sotto">Ceramidi e vaniglia</p>
+        <div class="card-riga">
+          <span class="card-prezzo">6,00 €</span>
+          <span class="card-form">5 gr</span>
+        </div>
+        <p class="card-attivi">Ceramidi (NP, AP, EOP) · Olio di Ricino · Olio di Jojoba</p>
+      </a>
+      <a class="card" href="prodotti/balsamo-labbra-calendula-arancia.html" data-cat="Labbra">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB032-1.webp" alt="Balsamo Labbra Calendula e arancia" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Labbra</span>
+        </div>
+        <h3>Balsamo Labbra</h3>
+        <p class="card-sotto">Calendula e arancia</p>
+        <div class="card-riga">
+          <span class="card-prezzo">6,00 €</span>
+          <span class="card-form">5 gr</span>
+        </div>
+        <p class="card-attivi">Burro di Cacao, Mango e Karité · Cere vegetali (Myrica, Candelilla, Carnauba) · Olio di Mandorle Dolci &amp; Jojoba</p>
+      </a>
+      <a class="card" href="prodotti/balsamo-labbra-canapa.html" data-cat="Labbra">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB029-1.webp" alt="Balsamo Labbra Canapa" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Labbra</span>
+        </div>
+        <h3>Balsamo Labbra</h3>
+        <p class="card-sotto">Canapa</p>
+        <div class="card-riga">
+          <span class="card-prezzo">6,00 €</span>
+          <span class="card-form">5 gr</span>
+        </div>
+        <p class="card-attivi">Cannabis Sativa Seed Oil · Burro di Karité · Olio di Ricino</p>
+      </a>
+      <a class="card" href="prodotti/burro-corpo-essenza-di-nutrimento.html" data-cat="Corpo">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB039-1.webp" alt="Burro Velluto Burro corpo botanico" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Corpo</span>
+        </div>
+        <h3>Burro Velluto</h3>
+        <p class="card-sotto">Burro corpo botanico</p>
+        <div class="card-riga">
+          <span class="card-prezzo">21,90 €</span>
+          <span class="card-form">100 gr</span>
+        </div>
+        <p class="card-attivi">Burro di Avocado · Burro di Karité · Olio di Mandorle Dolci &amp; Jojoba</p>
+      </a>
+      <a class="card" href="prodotti/calming-roll-on-lavanda.html" data-cat="Benessere">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB022-1.webp" alt="Calming Roll-on Lavanda" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Benessere</span>
+        </div>
+        <h3>Calming Roll-on</h3>
+        <p class="card-sotto">Lavanda</p>
+        <div class="card-riga">
+          <span class="card-prezzo">9,90 €</span>
+          <span class="card-form">10 ml</span>
+        </div>
+        <p class="card-attivi">Olio di Semi di Uva · Bakuchiol · Olio di Marula</p>
+      </a>
+      <a class="card" href="prodotti/calming-roll-on-sogni-di-luce.html" data-cat="Benessere">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB027-1.webp" alt="Calming Roll-on Sogni di luce" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Benessere</span>
+        </div>
+        <h3>Calming Roll-on</h3>
+        <p class="card-sotto">Sogni di luce</p>
+        <div class="card-riga">
+          <span class="card-prezzo">9,90 €</span>
+          <span class="card-form">10 ml</span>
+        </div>
+        <p class="card-attivi">Olio di Mandorle Dolci · Olio di Semi di Kiwi · Olio di Girasole</p>
+      </a>
+      <a class="card" href="prodotti/calming-roll-on-arancia.html" data-cat="Benessere">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB021-1.webp" alt="Calming Roll-on Arancia" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Benessere</span>
+        </div>
+        <h3>Calming Roll-on</h3>
+        <p class="card-sotto">Arancia</p>
+        <div class="card-riga">
+          <span class="card-prezzo">9,90 €</span>
+          <span class="card-form">10 ml</span>
+        </div>
+        <p class="card-attivi">Olio di Macadamia · Olio di Argan · Vitamina E</p>
+      </a>
+      <a class="card" href="prodotti/calming-roll-on-neroli-e-ylang-ylang.html" data-cat="Benessere">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB020-1.webp" alt="Calming Roll-on Neroli e ylang ylang" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Benessere</span>
+        </div>
+        <h3>Calming Roll-on</h3>
+        <p class="card-sotto">Neroli e ylang ylang</p>
+        <div class="card-riga">
+          <span class="card-prezzo">9,90 €</span>
+          <span class="card-form">10 ml</span>
+        </div>
+        
+      </a>
+      <a class="card" href="prodotti/maschera-viso-nutriente-e-purificante-ar.html" data-cat="Viso">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB036-1.webp" alt="Masquerade Maschera viso · argilla rossa" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Viso</span>
+        </div>
+        <h3>Masquerade</h3>
+        <p class="card-sotto">Maschera viso · argilla rossa</p>
+        <div class="card-riga">
+          <span class="card-prezzo">24,90 €</span>
+          <span class="card-form">60 gr</span>
+        </div>
+        <p class="card-attivi">Argilla Rossa &amp; Bianca (Kaolin) · Alghe (Ascophyllum / Laminaria) · Ibisco &amp; Mirtillo</p>
+      </a>
+      <a class="card" href="prodotti/maschera-viso-nutriente-e-purificante-ar.html" data-cat="Viso">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB037-1.webp" alt="Masquerade Maschera viso · argilla verde" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Viso</span>
+        </div>
+        <h3>Masquerade</h3>
+        <p class="card-sotto">Maschera viso · argilla verde</p>
+        <div class="card-riga">
+          <span class="card-prezzo">24,90 €</span>
+          <span class="card-form">60 gr</span>
+        </div>
+        <p class="card-attivi">Argilla Verde (Illite) · Alghe (Ascophyllum / Laminaria) · Avena &amp; Riso</p>
+      </a>
+      <a class="card" href="prodotti/olio-per-capelli.html" data-cat="Capelli">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB028-1.webp" alt="Rituale Botanico Olio rinforzante capelli e cute" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Capelli</span>
+        </div>
+        <h3>Rituale Botanico</h3>
+        <p class="card-sotto">Olio rinforzante capelli e cute</p>
+        <div class="card-riga">
+          <span class="card-prezzo">26,00 €</span>
+          <span class="card-form">50 ml</span>
+        </div>
+        <p class="card-attivi">Ricinus Communis Oil · Rosmarinus Officinalis Leaf Oil · Laurus Nobilis Leaf Oil</p>
+      </a>
+      <a class="card" href="prodotti/olio-per-le-unghie-olivello-spinoso-e-ar.html" data-cat="Mani e unghie">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB024-1.webp" alt="Olio per le Unghie Olivello spinoso e arancia dolce" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Mani e unghie</span>
+        </div>
+        <h3>Olio per le Unghie</h3>
+        <p class="card-sotto">Olivello spinoso e arancia dolce</p>
+        <div class="card-riga">
+          <span class="card-prezzo">6,00 €</span>
+          <span class="card-form">2 ml</span>
+        </div>
+        <p class="card-attivi">Olio di Calendula · Olio di Olivello Spinoso · Olio Essenziale di Tea Tree</p>
+      </a>
+      <a class="card" href="prodotti/olio-siero-per-viso-collo-al-kiwi.html" data-cat="Viso">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB023-1.webp" alt="Olio-Siero Viso e Collo al kiwi" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Viso</span>
+        </div>
+        <h3>Olio-Siero Viso e Collo</h3>
+        <p class="card-sotto">al kiwi</p>
+        <div class="card-riga">
+          <span class="card-prezzo">26,00 €</span>
+          <span class="card-form">50 ml</span>
+        </div>
+        <p class="card-attivi">Olio di Semi di Kiwi · Olio di Enotera · Olio di Albicocca</p>
+      </a>
+      <a class="card" href="prodotti/sapone-al-burro-di-karite-e-argilla-verd.html" data-cat="Saponi">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB002-1.webp" alt="Karité e Argilla Verde Sapone artigianale" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Saponi</span>
+        </div>
+        <h3>Karité e Argilla Verde</h3>
+        <p class="card-sotto">Sapone artigianale</p>
+        <div class="card-riga">
+          <span class="card-prezzo">6,00 €</span>
+          <span class="card-form">80 gr</span>
+        </div>
+        
+      </a>
+      <a class="card" href="prodotti/sapone-canapa-e-rosmarino.html" data-cat="Saponi">
+        <div class="card-foto">
+          <img src="img/prodotti/NAB018-1.webp" alt="Canapa e Rosmarino Sapone artigianale · cold process" width="1100" height="1375" loading="lazy" decoding="async">
+          <span class="card-cat">Saponi</span>
+        </div>
+        <h3>Canapa e Rosmarino</h3>
+        <p class="card-sotto">Sapone artigianale · cold process</p>
+        <div class="card-riga">
+          <span class="card-prezzo">10,00 €</span>
+          <span class="card-form">100 gr</span>
+        </div>
+        <p class="card-attivi">Olio di Canapa · Rosmarino · Alloro</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sez etichetta" id="etichetta">
+  <div class="wrap">
+    <div class="sez-testa">
+      <p class="occhiello">Il metodo</p>
+      <h2>Come si legge un&rsquo;etichetta</h2>
+      <p class="sez-sub">L&rsquo;INCI non è burocrazia: è l&rsquo;unico documento che dice davvero cosa c&rsquo;è dentro. Tre cose da sapere, e saprai leggere qualsiasi cosmetico &mdash; anche quelli che non sono nostri.</p>
+    </div>
+    <div class="eti-griglia">
+      <dl class="eti-c">
+        <dt>01 &middot; L&rsquo;ordine conta</dt>
+        <dd>Gli ingredienti sono elencati per quantità decrescente. Il primo è quello che c&rsquo;è di più. Se un olio pregiato sta in fondo alla lista, ce n&rsquo;è pochissimo.</dd>
+      </dl>
+      <dl class="eti-c">
+        <dt>02 &middot; Il latino è il nome botanico</dt>
+        <dd><em>Butyrospermum Parkii</em> è il burro di karité. <em>Simmondsia Chinensis</em> è la jojoba. Non è un modo per nascondere: è la nomenclatura internazionale, uguale in tutta Europa.</dd>
+      </dl>
+      <dl class="eti-c">
+        <dt>03 &middot; Sotto l&rsquo;1% l&rsquo;ordine salta</dt>
+        <dd>Gli ingredienti presenti sotto l&rsquo;uno per cento possono essere scritti in qualsiasi ordine. È lì che finiscono conservanti, profumazioni e allergeni.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sez" id="chi">
+  <div class="wrap chi">
+    <div>
+      <p class="occhiello">Chi siamo</p>
+      <h2>Un laboratorio sullo Ionio</h2>
+      <p>NABES nasce ad <strong>Alì Terme</strong>, sulla costa ionica in provincia di Messina. Formuliamo e produciamo a mano cosmetici con ingredienti di origine naturale e attivi botanici selezionati.</p>
+      <p>Piccoli lotti, formule brevi, nessun ingrediente messo lì per riempire. E la scelta che ci distingue: <strong>pubblichiamo tutto</strong> &mdash; attivi, funzioni, INCI integrale &mdash; su ogni singolo prodotto.</p>
+      <div class="chi-dati">
+        <div><b>15</b><span>prodotti a catalogo</span></div>
+        <div><b>7</b><span>linee</span></div>
+        <div><b>100%</b><span>formule pubblicate</span></div>
+      </div>
+    </div>
+    <div class="chi-foto">
+      <img src="img/prodotti/NAB039-2.webp" alt="Burro corpo NABES con gli ingredienti botanici della formula" width="1400" height="1050" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+</main>
+<footer class="ftr" id="contatti">
+  <div class="wrap ftr-griglia">
+    <div>
+      <p class="ftr-logo">NABES</p>
+      <p class="ftr-claim">Cosmetici naturali artigianali. Ogni formula scritta per intero, dal primo ingrediente all&rsquo;ultimo.</p>
+    </div>
+    <div>
+      <h4>Prodotti</h4>
+      <a href="index.html#catalogo">Viso</a>
+      <a href="index.html#catalogo">Corpo</a>
+      <a href="index.html#catalogo">Labbra</a>
+      <a href="index.html#catalogo">Capelli</a>
+      <a href="index.html#catalogo">Saponi</a>
+      <a href="index.html#catalogo">Benessere</a>
+      <a href="index.html#catalogo">Mani e unghie</a>
+    </div>
+    <div>
+      <h4>La casa</h4>
+      <a href="index.html#chi">Chi siamo</a>
+      <a href="index.html#etichetta">Come si legge un&rsquo;etichetta</a>
+      <a href="index.html#catalogo">Catalogo</a>
+    </div>
+    <div>
+      <h4>Contatti</h4>
+      <address>
+        Via Francesco Crispi 384-386<br>
+        98021 Al&igrave; Terme (ME)<br>
+        <a href="tel:+393793542521">+39 379 354 2521</a>
+        <a href="mailto:nabes@naturalbestsolution.com">nabes@naturalbestsolution.com</a>
+      </address>
+    </div>
+  </div>
+  <div class="wrap ftr-barra">
+    <p>&copy; <span id="anno">2026</span> NABES &middot; Natural Best Solution</p>
+    <p>Spedizione gratuita sopra 50 &euro;</p>
+  </div>
+</footer>
+</body>
+</html>
