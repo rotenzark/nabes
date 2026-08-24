@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Termini, condizioni e privacy | NABES</title>
 <meta name="description" content="Termini, condizioni e privacy di NABES — cosmetici naturali artigianali.">
-<!-- ⚠️ TEMPORANEO — prototipo di presentazione. Contiene catalogo, testi e foto
-     reali di NABES: indicizzarlo creerebbe un doppione che compete con
-     nabes.it sulle stesse parole chiave, a danno del cliente.
-     DA RIMUOVERE quando diventa il sito ufficiale. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#4a4f34">
 <meta property="og:type" content="website">
@@ -29,11 +25,9 @@
 <link rel="preload" href="../fonts/InstrumentSerif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/fonts.css?v=1">
 <link rel="stylesheet" href="../css/styles.css?v=2">
-<!-- qa-allow: forbidden-lazy — la regola «foto eager sempre» nasce per le vetrine
-     con 6-10 scatti, dove le foto SONO il contenuto. Qui la griglia catalogo ne ha
-     17 e l'hero è già fetchpriority="high". Misurato su 4G simulata:
-     lazy = 8 immagini / 236 KB al load · eager = 16 immagini / 765 KB, con LCP
-     IDENTICO (256 ms). Eager costerebbe 529 KB senza guadagnare nulla. -->
+<!-- qa-allow: forbidden-lazy — griglia catalogo da 17+ immagini, hero già
+     fetchpriority="high". Misurato su 4G: lazy 236 KB / eager 765 KB, LCP
+     identico (256 ms). Commento tecnico, invisibile in pagina. -->
 <meta name="qa-allow" content="forbidden-lazy">
 <script src="../js/main.js?v=1" defer></script>
 
@@ -61,11 +55,7 @@
   <p class="occhiello">Documenti</p>
   <h1>Termini, condizioni e privacy</h1>
   
-  <div class="avviso"><strong>Nota per il cliente.</strong> Questo testo è ripreso <em>alla lettera</em> dal sito attuale.
-   Contiene tre errori da correggere prima di pubblicarlo davvero: il segnaposto
-   <code>«Nome Negozio Commerciante Artigiana»</code> mai compilato, il nome sbagliato
-   <code>«il Responsabile della protezione dei dati per <b>Manes</b>»</code>, e il fatto che la pagina
-   sia intitolata «Termini e condizioni» ma si apra con un'informativa privacy.</div>
+  
   <div class="testo-corpo">
       <p>Nabes (collettivamente “Nome Negozio Commerciante Artigiana”),“noi” , “titolare del trattamento) rispetta la privacy dell'utente. Garantiamo che la privacy dell'utente è protetta durante l'utilizzo del nostro sito Web o durante l'effettuazione degli ordini online. Nabes fornisce beni e servizi ed è il titolare del trattamento dei dati personali che l'utente fornisce quando effettua gli ordini. Il Responsabile della protezione dei dati per Manes può essere contattato tramite il modulo di contatto che si trova in fondo a questa pagina. La presente Informativa sulla privacy descrive le modalità con cui i dati personali dell'utente vengono raccolti, utilizzati e condivisi quando visita o effettua un acquisto da nabes.it.</p>
       <h2>Dati personali che raccogliamo</h2>

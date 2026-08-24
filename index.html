@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NABES — Cosmetici naturali artigianali | Alì Terme, Sicilia</title>
 <meta name="description" content="Cosmetici naturali artigianali prodotti ad Alì Terme. Ogni formula pubblicata per intero: attivi, funzione di ciascuno e INCI completo. Oli, burri, maschere, saponi e balsami.">
-<!-- ⚠️ TEMPORANEO — prototipo di presentazione. Contiene catalogo, testi e foto
-     reali di NABES: indicizzarlo creerebbe un doppione che compete con
-     nabes.it sulle stesse parole chiave, a danno del cliente.
-     DA RIMUOVERE quando diventa il sito ufficiale. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#4a4f34">
 <meta property="og:type" content="website">
@@ -29,11 +25,9 @@
 <link rel="preload" href="fonts/InstrumentSerif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css?v=1">
 <link rel="stylesheet" href="css/styles.css?v=2">
-<!-- qa-allow: forbidden-lazy — la regola «foto eager sempre» nasce per le vetrine
-     con 6-10 scatti, dove le foto SONO il contenuto. Qui la griglia catalogo ne ha
-     17 e l'hero è già fetchpriority="high". Misurato su 4G simulata:
-     lazy = 8 immagini / 236 KB al load · eager = 16 immagini / 765 KB, con LCP
-     IDENTICO (256 ms). Eager costerebbe 529 KB senza guadagnare nulla. -->
+<!-- qa-allow: forbidden-lazy — griglia catalogo da 17+ immagini, hero già
+     fetchpriority="high". Misurato su 4G: lazy 236 KB / eager 765 KB, LCP
+     identico (256 ms). Commento tecnico, invisibile in pagina. -->
 <meta name="qa-allow" content="forbidden-lazy">
 <script src="js/main.js?v=1" defer></script>
 <script type="application/ld+json">
@@ -422,9 +416,9 @@
 <section class="sez altri-prodotti">
   <div class="wrap">
     <div class="sez-testa">
-      <p class="occhiello">Il resto del catalogo</p>
-      <h2>Altri 8 prodotti, dal loro shop</h2>
-      <p class="sez-sub">Questi articoli sono nel catalogo di NABES ma le loro schede non sono raggiungibili dallo shop attuale: nomi, formati e foto li ho letti <strong>dalle etichette nelle fotografie</strong>. Prezzo e INCI arrivano con l&rsquo;export del cliente &mdash; non li invento.</p>
+      <p class="occhiello">In arrivo in scheda</p>
+      <h2>Altri 8 prodotti dal laboratorio</h2>
+      <p class="sez-sub">Fanno gi&agrave; parte del nostro catalogo. Stiamo completando le schede con la formula, gli attivi e l&rsquo;INCI, come per tutti gli altri.</p>
     </div>
     <div class="griglia">
       <div class="card card-parziale">
@@ -435,7 +429,7 @@
         <h3>Sapone Karité e Curcuma</h3>
         <p class="card-sotto">Essenza naturale multifunzionale</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">80 gr</span>
         </div>
       </div>
@@ -447,7 +441,7 @@
         <h3>Sapone Mirtillo e Karité</h3>
         <p class="card-sotto">Purificante multifunzionale</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">100 gr</span>
         </div>
       </div>
@@ -459,7 +453,7 @@
         <h3>Sapone Burro di Karité e Farina d’Avena</h3>
         <p class="card-sotto">Multifunzionale</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">80 gr</span>
         </div>
       </div>
@@ -471,7 +465,7 @@
         <h3>Sapone Canapa e Moringa</h3>
         <p class="card-sotto">Purificante e lenitivo</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">80 gr</span>
         </div>
       </div>
@@ -483,7 +477,7 @@
         <h3>Sapone Solare Passiflora e Calendula</h3>
         <p class="card-sotto">Multifunzionale, per tutti i tipi di pelle</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">100 gr</span>
         </div>
       </div>
@@ -495,7 +489,7 @@
         <h3>Sapone dell’Equilibrio</h3>
         <p class="card-sotto">Legno di sandalo e ylang ylang</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">100 gr</span>
         </div>
       </div>
@@ -507,7 +501,7 @@
         <h3>Shampoo Bar</h3>
         <p class="card-sotto">Glicerina vegetale e carbone attivo, purificante ed esfoliante</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">100 gr</span>
         </div>
       </div>
@@ -519,7 +513,7 @@
         <h3>Balsamo e Unguento</h3>
         <p class="card-sotto">Canapa sativa, labbra e dopo puntura d’insetti</p>
         <div class="card-riga">
-          <span class="card-prezzo card-manca">Prezzo da confermare</span>
+          <span class="card-prezzo card-manca">Scheda in arrivo</span>
           <span class="card-form">15 gr</span>
         </div>
       </div>

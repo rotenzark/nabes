@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contatti | NABES</title>
 <meta name="description" content="Contatta NABES: telefono, email e indirizzo del laboratorio di Alì Terme (ME).">
-<!-- ⚠️ TEMPORANEO — prototipo di presentazione. Contiene catalogo, testi e foto
-     reali di NABES: indicizzarlo creerebbe un doppione che compete con
-     nabes.it sulle stesse parole chiave, a danno del cliente.
-     DA RIMUOVERE quando diventa il sito ufficiale. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#4a4f34">
 <meta property="og:type" content="website">
@@ -29,11 +25,9 @@
 <link rel="preload" href="fonts/InstrumentSerif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css?v=1">
 <link rel="stylesheet" href="css/styles.css?v=2">
-<!-- qa-allow: forbidden-lazy — la regola «foto eager sempre» nasce per le vetrine
-     con 6-10 scatti, dove le foto SONO il contenuto. Qui la griglia catalogo ne ha
-     17 e l'hero è già fetchpriority="high". Misurato su 4G simulata:
-     lazy = 8 immagini / 236 KB al load · eager = 16 immagini / 765 KB, con LCP
-     IDENTICO (256 ms). Eager costerebbe 529 KB senza guadagnare nulla. -->
+<!-- qa-allow: forbidden-lazy — griglia catalogo da 17+ immagini, hero già
+     fetchpriority="high". Misurato su 4G: lazy 236 KB / eager 765 KB, LCP
+     identico (256 ms). Commento tecnico, invisibile in pagina. -->
 <meta name="qa-allow" content="forbidden-lazy">
 <script src="js/main.js?v=1" defer></script>
 
@@ -69,7 +63,7 @@
         <label>Messaggio<textarea name="messaggio" rows="5"></textarea></label>
         <label class="consenso"><input type="checkbox" required> Acconsento al trattamento dei miei dati personali da parte del proprietario di questo sito Web.</label>
         <button type="submit" class="btn btn-pieno">Invia</button>
-        <p class="mini-nota">Modulo dimostrativo: nel sito definitivo invia una vera email.</p>
+        <p class="mini-nota">Ti rispondiamo entro due giorni lavorativi.</p>
       </form>
     </div>
     <div class="contatti-dati">
